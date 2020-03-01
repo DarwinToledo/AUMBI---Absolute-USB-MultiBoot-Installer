@@ -1,0 +1,142 @@
+#===========================================================
+# English Language File
+# (c)2016-2020 by Darwin Toledo - www.darwintoledo.com
+#===========================================================
+
+!define RODRILANG ${LANG_ENGLISH}
+
+        LangString LICENSE_AUMBI_TOP_TEXT   ${RODRILANG} "License Agreement"
+        LangString SELECTION_AUMBI_TOP_TEXT ${RODRILANG} "Distro and ISO Options"
+        LangString INSTALL_AUMBI_TOP_TEXT   ${RODRILANG} "Processing ISO in USB"
+        LangString COMPLETED_TEXT           ${RODRILANG} "All Finished, Process is Complete!"
+        LangString ADD_MORE_DISTRO_MB_TEXT  ${RODRILANG} "Would you like to add more ISOs/Distros Now on $DestDisk?"
+        LangString FINISH_AUMBI_TEXT        ${RODRILANG} "Process Completed"
+
+        LangString License_Subtitle         ${RODRILANG} "Please review the license terms before proceeding"
+        LangString License_Text_Top         ${RODRILANG} "The software within this program falls under the following Licenses."
+        LangString License_Text_Bottom      ${RODRILANG} "You must accept the terms of this License agreement to run this ${NAME}. If you agree, Click I Agree to Continue."
+        LangString SelectDist_Title         ${RODRILANG} "Drive Selection and Distro Options Page"
+        LangString SelectDist_Subtitle      ${RODRILANG} "Choose your Flash Drive, and a Distro, ISO/ZIP file.$\r$\nAdditional Distributions can be added each time this tool is run."
+        LangString DrivePage_Text           ${RODRILANG} "Step 1: Select the drive letter of your USB device."
+        LangString Distro_Text              ${RODRILANG} "Step 2: Select a Distribution from the list to put on your USB."
+        LangString IsoPage_Text             ${RODRILANG} "Step 3: Select the $FileFormat (Name must be the same as above)."
+        LangString IsoPage_Title            ${RODRILANG} "Select Your $FileFormat"
+        LangString Casper_Text              ${RODRILANG} "Step 4: Set a Persistent file size for storing changes (Optional)."
+        LangString IsoFile                  ${RODRILANG} "$FileFormat file|$ISOFileName" ;$ISOFileName variable previously *.iso
+        LangString Extract                  ${RODRILANG} "Extracting the $FileFormat: The progress bar will not move until finished. Please be patient..."
+        LangString CreateSysConfig          ${RODRILANG} "Creating configuration files for $DestDisk"
+        LangString ExecuteSyslinux          ${RODRILANG} "Executing syslinux on $BootDir"
+        LangString SkipSyslinux             ${RODRILANG} "Good Syslinux Exists..."
+        LangString WarningSyslinux          ${RODRILANG} "An error ($R8) occurred while executing syslinux.$\r$\nYour USB drive won't be bootable..."
+        LangString WarningSyslinuxOLD       ${RODRILANG} "This YUMI revision uses a newer Syslinux version that is not compatible with earlier revisions.$\r$\nPlease ensure your USB drive doesn't contain earlier revision installs."
+        LangString Install_Title            ${RODRILANG} "$InUnStall $ISOFileName"
+        LangString Install_SubTitle         ${RODRILANG} "Please wait while we $InUnStall $DistroName on $JustDrive"
+        LangString Install_Finish_Sucess    ${RODRILANG} "${NAME} sucessfully $InUnStalled $DistroName on $JustDrive"
+        LangString Finish_Install           ${RODRILANG} "$InUnStallation is Complete."
+        LangString Finish_Title             ${RODRILANG} "${NAME} has completed the $InUnStallation."
+        LangString Finish_Text              ${RODRILANG} "Your Selections have been $InUnStalled on your USB drive.$\r$\n$\r$\nFeel Free to run this tool again to $InUnStall more Distros.$\r$\n$\r$\n${NAME} will keep track of selections you have already $InUnStalled."
+        LangString Finish_Link              ${RODRILANG} "Visit the ${NAME} Tutorial Page"
+
+        LangString Create_Button            ${RODRILANG} "Create"
+
+        LangString VIEWREM_DISTROS          ${RODRILANG} "View or Remove Installed Distros?"
+        LangString DOWNLOAD_ISOOP           ${RODRILANG} "Download the ISO (Optional)."
+        LangString SHOW_ALL_ISOS            ${RODRILANG} "Show All ISOs?"
+        LangString S_SHOW_ALLISOS           ${RODRILANG} "Show All ISOs!"
+        LangString RL_BROWSE                ${RODRILANG} "Browse"
+        LangString RL_VISIT_HOME            ${RODRILANG} "Visit the $OfficialName HomePage"
+        LangString BROW_AND_SELFORM         ${RODRILANG} "Browse to and select the $FileFormat"
+        LangString RL1_STEP1                ${RODRILANG} "Step 1: ${NAME} Summoned $DestDisk as your USB Device"
+        LangString SHOW_ALL_DRIVES          ${RODRILANG} "Show All Drives?"
+        ;LangString CLICK_TO_ONLINEHELP      ${RODRILANG} "Click HERE to visit the ${NAME} page for additional Help!"
+        ;LangString CLICK_TO_ONLINEHELP2     ${RODRILANG} "Click HERE to visit the ${NAME} page for additional Help!"
+
+        LangString RL2_STEP1                ${RODRILANG} "Step 1: Select the Drive Letter of your USB Device."
+        LangString RL2_FORMAT               ${RODRILANG} "NTFS Format $DestDisk"
+        LangString RL2_FORMATFAT            ${RODRILANG} "FAT32 Format $DestDisk"
+        LangString RL2_FORMATW              ${RODRILANG} "NTFS Format $DestDisk (Wipes Drive)"
+        LangString RL2_FORMATFATW           ${RODRILANG} "FAT32 Format $DestDisk (Wipes Drive)"
+        LangString RL2_SHOWING              ${RODRILANG} "Showing All Drives"
+        LangString RL_ODL                   ${RODRILANG} "Opened Download Link"
+        LangString RL_DL1                   ${RODRILANG} "Download Link"
+        LangString RL_WEWILLFAT             ${RODRILANG} "We Will Fat32 Format $DestDisk"
+        LangString RL_WEWILLNTFS            ${RODRILANG} "We Will NTFS Format $DestDisk"
+
+        LangString MENU_LABEL_LUNIX_DIST    ${RODRILANG} "Linux Distributions"
+        LangString MENU_LABEL_SYS_TOOLS     ${RODRILANG} "System Tools"
+        LangString MENU_LABEL_SYS_ANONY     ${RODRILANG} "Anonymous Browsers"
+        LangString MENU_LABEL_ANTIVIR       ${RODRILANG} "Antivirus Tools"
+        LangString MENU_LABEL_NETBOOK       ${RODRILANG} "Netbook Distributions"
+        LangString MENU_LABEL_OTHER_OS      ${RODRILANG} "Other OS and Tools"
+        LangString MENU_LABEL_UNLISTED      ${RODRILANG} "Unlisted ISO (via SYSLINUX)"
+        LangString MENU_LABEL_UNLISTED2     ${RODRILANG} "Unlisted ISOs (via GRUB)"
+        LangString MENU_LABEL_UNLISTED3     ${RODRILANG} "Unlisted ISOs (via Virtual Hard Disk)"
+        LangString MENU_LABEL_UNLISTED4     ${RODRILANG} "Unlisted ISOs (via GRUB Partition 4)"
+        LangString MENU_LABEL_UNLISTED5     ${RODRILANG} "Unlisted ISOs (via GRUB from RAM)"
+        LangString MENU_LABEL_WINDOWS       ${RODRILANG} "Windows Installers"
+        LangString MENU_LABEL_WINTOGO       ${RODRILANG} "Windows to Go"
+        ;LangString MENU_LABEL_GRUB          ${RODRILANG} "GRUB Bootable ISOs"
+        ;LangString MENU_LABEL_GRUB_LARGE    ${RODRILANG} "GRUB Bootable ISOs and Windows XP/7/8"
+        LangString MENU_BACKTOMAIN          ${RODRILANG} "Back to Main Menu"
+        LangString GEN_CREDITS_FILE         ${RODRILANG} "# Menu Created by ${NAME} ${PRODUCT_WEBSITE}"
+
+        LangString MB_DL2                   ${RODRILANG} "Launch the Download Link?$\r$\nLet the download finish before moving to step 2."
+        LangString RL2_STEP3                ${RODRILANG} "Step 3: Once your download has finished, Browse and select the ISO."
+        LangString BW2_STEP3                ${RODRILANG} "Step 3: Browse and Select your $ISOFileName"
+        LangString BW_ISO_1                 ${RODRILANG} "Browse to your $ISOFileName  -->"
+        LangString VTO_HOME1                ${RODRILANG} "Visit the $OfficialName Home Page"
+        LangString WE_SELECT1               ${RODRILANG} "We Found and Selected the $SomeFileExt."
+        LangString DONE_STEP3               ${RODRILANG} "Step 3 DONE: $ISOFileName Found and Selected!"
+
+        LangString BW_ISO_2                 ${RODRILANG} "Browse to and select the $ISOFileName"
+        LangString PEND_STEP3               ${RODRILANG} "Step 3 PENDING: Browse to your $ISOFileName"
+
+
+        LangString LOCAL_SOMEFILE_SEL       ${RODRILANG} "Local $SomeFileExt Selected."
+        LangString JUST_ISONAME_ALREDY      ${RODRILANG} "$JustISOName is already on $DestDisk$\r$\nPlease Remove it first!$\r$\n$\r$\nNOTE: If you have already removed it using AUMBI,$\r$\nmanually delete the $BootDir\${MB_DIR}\$JustISOName\ folder."
+        LangString STEP_2_SELADISTRNA       ${RODRILANG} "Step 2: $DistroName Selected"
+        LangString STEP_2_SELADISTRIB       ${RODRILANG} "Step 2: Select a Distribution to put on $DestDisk"
+        LangString BUTTON_REMOVE_TEXT       ${RODRILANG} "Remove"
+        LangString YOURE_UNISTALLERMODE     ${RODRILANG} "You're in Uninstaller Mode!"
+        LangString STEP2_DESTINATIONDISK    ${RODRILANG} "Step 2: Select a Distribution to remove from $DestDisk"
+        LangString STEP3_SELECTISOFILEVAR   ${RODRILANG} "Step 3: Select your $ISOFileName"
+        LangString DISABLE_AFTER_STEP2      ${RODRILANG} "Disabled until step 2 is complete"
+        LangString BUTTON_CREATE_TEXT       ${RODRILANG} "Create"
+        LangString STEP2_SELECTADISTRO      ${RODRILANG} "Step 2: Select a Distribution to put on $DestDisk"
+
+        LangString STEP1_DESTUSBDEV         ${RODRILANG} "Step 1: You Selected $DestDisk on (Disk $DiskNum) as your USB Device"
+        ;LangString FORMATING_TEXTDISK       ${RODRILANG} "Formatting $DestDisk as Fat32 using Fat32format.exe"
+        ;LangString WEWILL_FAT32             ${RODRILANG} "We Will Fat32 Format $DestDisk Drive!"
+        ;LangString FORMAT_DESTDIST_DRIVE    ${RODRILANG} "Format $DestDisk Drive (Erase Content)?"
+
+        ;LangString STEP_2_REMOVEFROMLIST    ${RODRILANG} "Step 2: Select a Distribution from the list to remove from $DestDisk"
+
+        LangString STEP_3_JUSTISOSEL         ${RODRILANG} "Step 3: $JustISO Selected"
+        LangString STEP_3_SELYOURISO         ${RODRILANG} "Step 3: Select your $ISOFileName"
+        
+        LangString STEP_4_SETTHESIZE         ${RODRILANG} "Step 4: Set the Size of the Win2Go VHD file. Minimum 20,000 MB"
+        LangString STEP_4_SETPERSIST         ${RODRILANG} "Step 4: Set a Persistent file size for storing changes (Optional)."
+
+        LangString DISK_LABEL1               ${RODRILANG} "We Will Wipe (Disk $DiskNum)"
+        LangString DISK_LABEL2               ${RODRILANG} "Wipe Entire (Disk $DiskNum)"
+        LangString Disk_LabelS               ${RODRILANG} "Disk"
+        
+        LangString MAIN_BOOT_HDD             ${RODRILANG} "Boot from first Hard Drive"
+        LangString MAIN_BOOT_HDD2            ${RODRILANG} "Continue to Boot from ^First HD (default)"
+
+        LangString DETAILPRINT_PREINST       ${RODRILANG} "A Previous MultiBoot Installation was detected... proceeding to add your new selections."
+        LangString FOUND_SEARCHFILE          ${RODRILANG} "Found $SearchFile at $0"
+        LangString DETAILPRINT_CHECKING      ${RODRILANG} "Checking if we need to replace vesamenu.c32, menu.c32, and chain.c32, libutil.c32, libcom32.c32, memdisk"
+        LangString DETAILPRINT_ISOADDED      ${RODRILANG} "$DistroName ($JustISOName) and its menu entry were added!"
+        LangString MBOX_OK_CONFIG            ${RODRILANG} "AUMBI couldn't find a configuration file.$\r$\n'$JustISO' not supported, please report the exact steps taken to arrive at this message!$\r$\nAUMBI will now remove this entry."
+        LangString DETAILPRINT_ISOREMOVED    ${RODRILANG} "$JustISOName and its menu entry were Removed!"
+        LangString DETAILPRINT_ISOREMOVED2   ${RODRILANG} "$DistroName and its menu entry were Removed!"
+
+        LangString MBOX_FOURTABLE            ${RODRILANG} "This option creates a 4th partition table on ($DestDisk)$\r$\n$\r$\nIt is up to you to ensure that a 4th partition doesn't already exist on ($DestDisk). If it exists, it could be overwritten.$\r$\n$\r$\nClick YES to accept these actions or NO to Go Back!"
+        LangString MBOX_WARNING01            ${RODRILANG} "WARNING: Backup any data you want to keep before proceeding! All Data on (Disk $DiskNum) including any attached drive letters, partitions and volumes, even if hidden, will be wiped.$\r$\n$\r$\n${NAME} is ready to perform the following actions:$\r$\n$\r$\n1.) Wipe (Disk $DiskNum) - Data will be Irrecoverably Deleted!$\r$\n$\r$\n2.) Recreate Drive Letter ($DestDisk) with a single NTFS partition.$\r$\n$\r$\n3.) Create a Syslinux MBR on ($DestDisk) - Existing MBR will be Overwritten!$\r$\n$\r$\n4.) Create ${MB_LAB} Label on ($DestDisk) - Existing Label will be Overwritten!$\r$\n$\r$\n5.) Install ($DistroName) on ($DestDisk)$\r$\n$\r$\nAre you absolutely positive (Disk $DiskNum) is the correct Disk?$\r$\nDouble Check with Windows diskmgmt to make sure!$\r$\n$\r$\nClick YES to perform these actions or NO to Abort!"
+        LangString MBOX_WARNING02            ${RODRILANG} "WARNING: Backup any data you want to keep before proceeding! All Data on (Disk $DiskNum) including any attached drive letters, partitions and volumes, even if hidden, will be wiped.$\r$\n$\r$\n${NAME} is ready to perform the following actions:$\r$\n$\r$\n1.) Wipe (Disk $DiskNum) - Data will be Irrecoverably Deleted!$\r$\n$\r$\n2.) Recreate Drive Letter ($DestDisk) with a single Fat32 partition.$\r$\n$\r$\n3.) Create a Syslinux MBR on ($DestDisk) - Existing MBR will be Overwritten!$\r$\n$\r$\n4.) Create ${MB_LAB} Label on ($DestDisk) - Existing Label will be Overwritten!$\r$\n$\r$\n5.) Install ($DistroName) on ($DestDisk)$\r$\n$\r$\nAre you absolutely positive (Disk $DiskNum) is the correct USB Device?$\r$\nDouble Check with Windows diskmgmt to make sure!$\r$\n$\r$\nClick YES to perform these actions or NO to Abort!"
+        LangString MBOX_WARNING03            ${RODRILANG} "WARNING: Backup any data you want to keep before proceeding! All Data on Drive Letter ($DestDisk) will be deleted.$\r$\n$\r$\n${NAME} is ready to perform the following actions:$\r$\n$\r$\n1.) Lock and Dismount Drive Letter ($DestDisk).$\r$\n$\r$\n2.) NTFS Format ($DestDisk) - Data on ($DestDisk) will be Irrecoverably Deleted!$\r$\n$\r$\n3.) Create a Syslinux MBR on ($DestDisk) - Existing MBR will be Overwritten!$\r$\n$\r$\n4.) Create ${MB_LAB} Label on ($DestDisk) - Existing Label will be Overwritten!$\r$\n$\r$\n5.) Install ($DistroName) on ($DestDisk)$\r$\n$\r$\nAre you absolutely positive ($DestDisk) on (Disk $DiskNum) is your USB Device?$\r$\nDouble Check with Windows and diskmgmt to make sure!$\r$\n$\r$\nClick YES to perform these actions or NO to Abort!"
+        LangString MBOX_WARNING04            ${RODRILANG} "WARNING: Backup any data you want to keep before proceeding! All Data on Drive Letter ($DestDisk) will be deleted.$\r$\n$\r$\n${NAME} is ready to perform the following actions:$\r$\n$\r$\n1.) Lock and Dismount Drive Letter ($DestDisk).$\r$\n$\r$\n2.) Fat32 Format ($DestDisk) - Data on ($DestDisk) will be Irrecoverably Deleted!$\r$\n$\r$\n3.) Create a Syslinux MBR on ($DestDisk) - Existing MBR will be Overwritten!$\r$\n$\r$\n4.) Create ${MB_LAB} Label on ($DestDisk) - Existing Label will be Overwritten!$\r$\n$\r$\n5.) Install ($DistroName) on ($DestDisk)$\r$\n$\r$\nAre you absolutely positive ($DestDisk) on (Disk $DiskNum) is your USB Device?$\r$\nDouble Check with Windows and diskmgmt to make sure!$\r$\n$\r$\nClick YES to perform these actions or NO to Abort!"
+        LangString MBOX_READYTOPERFORM       ${RODRILANG} "${NAME} is Ready to perform the following actions:$\r$\n$\r$\n1. Create a Syslinux MBR on ($DestDisk) - Existing MBR will be Overwritten!$\r$\n$\r$\n2. Create ${MB_LAB} Label on ($DestDisk) - Existing Label will be Overwritten!$\r$\n$\r$\n3. Install ($DistroName) on ($DestDisk)$\r$\n$\r$\nAre you absolutely positive Drive Letter ($DestDisk) on (Disk $DiskNum) is your USB Device?$\r$\nDouble Check with Windows to make sure!$\r$\n$\r$\nClick YES to perform these actions on ($DestDisk) or NO to Go Back!"
+
+!undef RODRILANG

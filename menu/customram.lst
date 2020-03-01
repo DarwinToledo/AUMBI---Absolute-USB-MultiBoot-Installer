@@ -1,0 +1,18 @@
+# This Menu created with AUMBI https://www.usbwithlinux.com
+default 1
+timeout 30
+color NORMAL HIGHLIGHT HELPTEXT HEADING
+foreground=FFFFFF
+background=000000
+
+title <-- Back to Main Menu
+root (hd0,0)
+chainloader (hd0)+1
+rootnoverify (hd0)
+
+title Boot SLUG
+find --set-root --ignore-floppies --ignore-cd /multiboot/IPATH/SLUG
+map --heads=0 --sectors-per-track=0 --mem /multiboot/IPATH/SLUG (hd32)
+map --hook
+root (hd32)
+chainloader (hd32)

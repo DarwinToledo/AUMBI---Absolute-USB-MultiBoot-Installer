@@ -1,0 +1,8 @@
+default 0
+timeout=0
+
+title Boot Medicat
+find --set-root --ignore-floppies --ignore-cd /multiboot/ISOS/SLUG
+map --heads=0 --sectors-per-track=0 /multiboot/ISOS/SLUG (hd32)
+map --hook
+chainloader (hd32)

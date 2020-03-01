@@ -1,0 +1,4 @@
+select disk DISKNUM
+list disk
+clean
+exit

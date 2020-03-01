@@ -1,0 +1,28 @@
+# This Menu created with AUMBI https://www.usbwithlinux.com
+default 0
+timeout 30
+color NORMAL HIGHLIGHT HELPTEXT HEADING
+foreground=FFFFFF
+background=000000
+
+title Boot DLUG
+set ISO=/multiboot/DLUG/SLUG
+set CASPER=/multiboot/DLUG/casper-rw
+find --set-root %ISO%
+map %ISO% (0xff)
+#CLUG
+map --hook
+root (0xff)
+kernel /casper/VLUG file=/cdrom/preseed/SLEED noprompt boot=casper iso-scan/filename=%ISO% quiet --
+initrd /casper/ILUG
+
+title Boot DLUG acpi=off
+set ISO=/multiboot/DLUG/SLUG
+set CASPER=/multiboot/DLUG/casper-rw
+find --set-root %ISO%
+map %ISO% (0xff)
+#CLUG
+map --hook
+root (0xff)
+kernel /casper/VLUG file=/cdrom/preseed/SLEED noprompt boot=casper iso-scan/filename=%ISO% quiet acpi=off --
+initrd /casper/ILUG

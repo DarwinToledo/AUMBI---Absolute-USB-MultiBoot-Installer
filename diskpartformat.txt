@@ -1,0 +1,6 @@
+list volume
+select volume DSK
+format fs=NTFS quick label=MULTIBOOT override
+assign letter DSK
+list volume
+exit

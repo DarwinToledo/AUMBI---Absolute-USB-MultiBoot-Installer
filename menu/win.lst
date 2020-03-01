@@ -1,0 +1,14 @@
+# This Menu created with AUMBI https://www.usbwithlinux.com
+default 1
+timeout 30
+color NORMAL HIGHLIGHT HELPTEXT HEADING
+foreground=FFFFFF
+background=000000
+
+title --- Windows Installers ---
+root
+
+title <-- Back to Main Menu
+root (hd0,0)
+chainloader (hd0)+1
+rootnoverify (hd0)

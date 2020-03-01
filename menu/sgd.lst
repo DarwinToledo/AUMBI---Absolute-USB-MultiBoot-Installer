@@ -1,0 +1,10 @@
+default 0
+timeout=0
+
+title Boot Super Grub2 Disk
+find --set-root --ignore-floppies --ignore-cd /multiboot/ISOS/SLUG
+map --heads=0 --sectors-per-track=0 --mem /multiboot/ISOS/SLUG (hd32)
+map --hook
+root (hd32)
+chainloader (hd32)
+ 

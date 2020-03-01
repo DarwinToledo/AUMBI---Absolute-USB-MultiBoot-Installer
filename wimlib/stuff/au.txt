@@ -1,0 +1,1 @@
+add "BOOTDIRSLUG/multiboot/ISONAMESLUG/autounattend.xml" "/autounattend.xml"

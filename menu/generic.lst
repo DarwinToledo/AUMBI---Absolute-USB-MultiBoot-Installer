@@ -1,0 +1,16 @@
+default 0
+timeout=0
+
+title Boot SLUG
+set ISO=/multiboot/SLUG/JUSTISO
+find --set-root %ISO%
+parttype (hd0,3) | set check=
+set check=%check:~-5,4%
+if $\"%check%$\"==$\"0x00$\" partnew (hd0,3) 0 0 0
+if NOT $\"%check%$\"==$\"0x00$\" echo ERROR: Fourth partition table is not empty, please delete it if you wish to use this method && pause --wait=5 && configfile /multiboot/menu/grubpart4.lst
+partnew (hd0,3) 0x00 %ISO%
+
+map %ISO% (0xff)
+map --hook
+root (0xff)
+chainloader (0xff)
