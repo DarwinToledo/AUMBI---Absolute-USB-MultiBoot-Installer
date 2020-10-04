@@ -14,12 +14,18 @@ Pop $NameThatISO
  Quit
  ${EndIf}
 
- ${If} $DistroName == "Try Unlisted ISO (GRUB Partition 4)"
+ ; The following checkpoint should not be necessary as a preventative measure is in place to check for a fourth partition table entry once the OS is launched. If it exists a warning is displayed and the process is paused.
+ /* ${If} $DistroName == "Try Unlisted ISO (GRUB Partition 4)"
  ${OrIf} $DistroName == "Antergos"
  ${OrIf} $DistroName == "Bitdefender Rescue CD"
  ${OrIf} $DistroName == "CentOS Installer"
  ${OrIf} $DistroName == "CentOS Live"
  ${OrIf} $DistroName == "Deepin"
+ ${OrIf} $DistroName == "Debian Live"
+ ${OrIf} $DistroName == "Linux Mint"
+ ${OrIf} $DistroName == "Linux Mint Debian Edition"  
+ ${OrIf} $DistroName == "Q4OS"
+ ${OrIf} $DistroName == "Rescuezilla"
  ${OrIf} $DistroName == "Slackel"
  ${OrIf} $DistroName == "Archlinux"
  ${OrIf} $DistroName == "Ubuntu Mini (Netboot Installer)"
@@ -57,7 +63,8 @@ Pop $NameThatISO
  Quit
  ${EndIf}
 
-checkpoint:
+checkpoint: */
+
 ; Wipe and Format ---
  ${If} $FormatMe == "Yes"
   ${AndIf} $WipeMe == "Yes"
@@ -95,7 +102,7 @@ proceed:
 
 ; Copy the config file if it doesn't exist and create the entry in syslinux.cfg
  ${IfNot} ${FileExists} "$BootDir\${MB_DIR}\menu\$Config2Use"
- CopyFiles "$PLUGINSDIR\$Config2Use" "$BootDir\${MB_DIR}\menu\$Config2Use"
+ CopyFiles /SILENT "$PLUGINSDIR\$Config2Use" "$BootDir\${MB_DIR}\menu\$Config2Use"
  Call Config2Write
  ${EndIf}
 

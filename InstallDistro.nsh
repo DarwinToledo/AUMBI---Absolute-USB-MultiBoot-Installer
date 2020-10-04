@@ -116,7 +116,7 @@ FunctionEnd
   
 Function WriteStuff
  ; Now done before this function is called (see line 122) CreateDirectory "$BootDir\${MB_DIR}\$JustISOName\AUMBI\" ; Create the AUMBI Directory.. so we can copy the following config file to it.
- CopyFiles "$PLUGINSDIR\$Config2Use" "$BootDir\${MB_DIR}\$JustISOName\AUMBI\$Config2Use" ; Copy the $Config2Use file to $JustISOName\AUMBI folder for the distro (so we know where to remove entry)
+ CopyFiles /SILENT "$PLUGINSDIR\$Config2Use" "$BootDir\${MB_DIR}\$JustISOName\AUMBI\$Config2Use" ; Copy the $Config2Use file to $JustISOName\AUMBI folder for the distro (so we know where to remove entry)
  DetailPrint "$(DETAILPRINT_ISOADDED)"
  
 ; Failure to find ConfigFile and was not added as a GRUB Boot ISO, so Remove and Delete   
@@ -154,7 +154,7 @@ FunctionEnd
  ${If} $DistroName == "Acronis True Image"
  ExecWait '"$PLUGINSDIR\7zG.exe" e "$ISOFile" -x![BOOT] -o"$BootDir\${MB_DIR}\$JustISOName\" -y'  
  File /oname=$PLUGINSDIR\acronisti.cfg "menu\acronisti.cfg"   
- CopyFiles "$PLUGINSDIR\acronisti.cfg" "$BootDir\${MB_DIR}\$JustISOName\acronisti.cfg"  
+ CopyFiles /SILENT "$PLUGINSDIR\acronisti.cfg" "$BootDir\${MB_DIR}\$JustISOName\acronisti.cfg"  
  ${WriteToFile} "#start $JustISOName$\r$\nLABEL $JustISOName$\r$\nMENU LABEL $JustISOName$\r$\nCONFIG /${MB_DIR}/$JustISOName/acronisti.cfg$\r$\nAPPEND /${MB_DIR}/$JustISOName$\r$\n#end $JustISOName" $R0 
 
  ; Calculate Linux Desktop
@@ -177,12 +177,19 @@ FunctionEnd
  CopyFiles $ISOFile "$BootDir\${MB_DIR}\ISOS\$JustISO" 
  ${WriteToFile} "#start $JustISOName$\r$\nlabel Bitdefender ($JustISOName)$\r$\nMENU LABEL Bitdefender ($JustISOName)$\r$\nMENU INDENT 1$\r$\nKERNEL /${MB_DIR}/grub.exe$\r$\nAPPEND --config-file=/${MB_DIR}/menu/bitdefender.lst$\r$\n#end $JustISOName" $R0   
  File /oname=$PLUGINSDIR\bitdefender.lst "Menu\bitdefender.lst"  
- CopyFiles "$PLUGINSDIR\bitdefender.lst" "$BootDir\${MB_DIR}\menu\bitdefender.lst" 
+ CopyFiles /SILENT "$PLUGINSDIR\bitdefender.lst" "$BootDir\${MB_DIR}\menu\bitdefender.lst" 
  !insertmacro ReplaceInFile "SLUG" "$JustISO" "all" "all" "$BootDir\${MB_DIR}\menu\bitdefender.lst" 
  
  ${ElseIf} $DistroName == "CentOS Installer"
   ${OrIf} $DistroName == "CentOS Live"
   ${OrIf} $DistroName == "Deepin"
+  ${OrIf} $DistroName == "Debian Live"
+  ${OrIf} $DistroName == "Endeavour OS"
+  ${OrIf} $DistroName == "Q4OS"
+  ${OrIf} $DistroName == "Rescuezilla (Backup + Clone Tool)"
+  ${OrIf} $DistroName == "LinuxFX"
+  ${OrIf} $DistroName == "Linux Mint"
+  ${OrIf} $DistroName == "Linux Mint Debian Edition"
   ${OrIf} $DistroName == "Slackel"
   ${OrIf} $DistroName == "Antergos"
   ${OrIf} $DistroName == "Archlinux"
@@ -223,7 +230,7 @@ FunctionEnd
  CopyFiles $ISOFile "$BootDir\${MB_DIR}\$JustISOName\$JustISO" 
  ${WriteToFile} "#start $JustISOName$\r$\nlabel $JustISOName$\r$\nMENU LABEL $JustISOName$\r$\nMENU INDENT 1$\r$\nKERNEL /${MB_DIR}/grub.exe$\r$\nAPPEND --config-file=/${MB_DIR}/$JustISOName/basic.lst$\r$\n#end $JustISOName" $R0   
  File /oname=$PLUGINSDIR\basic.lst "Menu\basic.lst"  
- CopyFiles "$PLUGINSDIR\basic.lst" "$BootDir\${MB_DIR}\$JustISOName\basic.lst" 
+ CopyFiles /SILENT "$PLUGINSDIR\basic.lst" "$BootDir\${MB_DIR}\$JustISOName\basic.lst" 
  !insertmacro ReplaceInFile "SLUG" "$JustISO" "all" "all" "$BootDir\${MB_DIR}\$JustISOName\basic.lst" 
  !insertmacro ReplaceInFile "IPATH" "$JustISOName" "all" "all" "$BootDir\${MB_DIR}\$JustISOName\basic.lst"  
  
@@ -234,14 +241,14 @@ FunctionEnd
  CopyFiles $ISOFile "$BootDir\${MB_DIR}\$JustISOName\$JustISO" 
  ${WriteToFile} "#start $JustISOName$\r$\nlabel $JustISOName$\r$\nMENU LABEL $JustISOName$\r$\nMENU INDENT 1$\r$\nKERNEL /${MB_DIR}/grub.exe$\r$\nAPPEND --config-file=/${MB_DIR}/$JustISOName/$JustISOName.lst$\r$\n#end $JustISOName" $R0   
  File /oname=$PLUGINSDIR\basic.lst "Menu\basic.lst"  
- CopyFiles "$PLUGINSDIR\basic.lst" "$BootDir\${MB_DIR}\$JustISOName\$JustISOName.lst" 
+ CopyFiles /SILENT "$PLUGINSDIR\basic.lst" "$BootDir\${MB_DIR}\$JustISOName\$JustISOName.lst" 
  !insertmacro ReplaceInFile "SLUG" "$JustISO" "all" "all" "$BootDir\${MB_DIR}\$JustISOName\$JustISOName.lst" 
  !insertmacro ReplaceInFile "IPATH" "$JustISOName" "all" "all" "$BootDir\${MB_DIR}\$JustISOName\$JustISOName.lst"   
 
  ${ElseIf} $DistroName == "HD Sentinel (HDD Diagnostics)"
  ExecWait '"$PLUGINSDIR\7zG.exe" e "$ISOFile" -o"$BootDir\${MB_DIR}\$JustISOName\" -y'
  File /oname=$PLUGINSDIR\customram.lst "Menu\customram.lst"
- CopyFiles "$PLUGINSDIR\customram.lst" "$BootDir\${MB_DIR}\$JustISOName\customram.lst"
+ CopyFiles /SILENT "$PLUGINSDIR\customram.lst" "$BootDir\${MB_DIR}\$JustISOName\customram.lst"
  ${WriteToFile} "#start $JustISOName$\r$\nlabel $JustISOName$\r$\nMENU LABEL $JustISOName$\r$\nMENU INDENT 1$\r$\nKERNEL /${MB_DIR}/grub.exe$\r$\nAPPEND --config-file=/${MB_DIR}/$JustISOName/customram.lst$\r$\n#end $JustISOName" $R0
  !insertmacro ReplaceInFile "SLUG" "hdsdos.iso" "all" "all" "$BootDir\${MB_DIR}\$JustISOName\customram.lst"
  !insertmacro ReplaceInFile "IPATH" "$JustISOName" "all" "all" "$BootDir\${MB_DIR}\$JustISOName\customram.lst"
@@ -264,6 +271,7 @@ FunctionEnd
   ${OrIf} $DistroName == "Xubuntu" 
    ${OrIf} $DistroName == "Kubuntu" 
     ${OrIf} $DistroName == "Lubuntu" 
+	 ${OrIf} $DistroName == "LinuxFX"
 	 ${OrIf} $DistroName == "Ubuntu Budgie"
 	 ${OrIf} $DistroName == "Ubuntu Mate"
       ${OrIf} $DistroName == "Ubuntu Gnome" 	   
@@ -291,7 +299,7 @@ FunctionEnd
   CopyFiles $ISOFile "$BootDir\${MB_DIR}\$JustISOName\$JustISO" ; Copy the ISO to Directory
   ExecWait '"$PLUGINSDIR\7zG.exe" e "$ISOFile" -ir!vmlinu* -ir!init* -o"$BootDir\${MB_DIR}\$JustISOName\" -y'
   File /oname=$PLUGINSDIR\ubuntu.lst "Menu\ubuntu.lst"  
-  CopyFiles "$PLUGINSDIR\ubuntu.lst" "$BootDir\${MB_DIR}\$JustISOName\ubuntu.lst"   
+  CopyFiles /SILENT "$PLUGINSDIR\ubuntu.lst" "$BootDir\${MB_DIR}\$JustISOName\ubuntu.lst"   
   ${WriteToFile} "#start $JustISOName$\r$\nlabel $JustISOName$\r$\nmenu label $JustISOName$\r$\nMENU INDENT 1$\r$\nKERNEL /${MB_DIR}/grub.exe$\r$\nAPPEND --config-file=/${MB_DIR}/$JustISOName/ubuntu.lst$\r$\n#end $JustISOName" $R0   
  
    ${If} $DistroName == "Ubuntu"
@@ -360,7 +368,7 @@ FunctionEnd
     ; Add Boot Code Persistent
     ${If} ${FileExists} "$BootDir\${MB_DIR}\$JustISOName\ubuntu.lst" ; Rename the following
     !insertmacro ReplaceInFile "noprompt boot=" "noprompt persistent boot=" "all" "all" "$BootDir\${MB_DIR}\$JustISOName\ubuntu.lst" 
-	!insertmacro ReplaceInFile "#CLUG" "parttype (hd0,3) | set check=$\r$\nset check=%check:~-5,4%$\r$\nif $\"%check%$\"==$\"0x00$\" partnew (hd0,3) 0 0 0$\r$\nif NOT $\"%check%$\"==$\"0x00$\" echo ERROR: third partition table is not empty, please delete it if you wish to use this method && pause --wait=5 && configfile /${MB_DIR}/$JustISOName/ubuntu.lst$\r$\npartnew (hd0,3) 0x00 %CASPER%$\r$\nmap %CASPER% (hd0,3)" "all" "all" "$BootDir\${MB_DIR}\$JustISOName\ubuntu.lst"
+	!insertmacro ReplaceInFile "#CLUG" "parttype (hd0,3) | set check=$\r$\nset check=%check:~-5,4%$\r$\nif $\"%check%$\"==$\"0x00$\" partnew (hd0,3) 0 0 0$\r$\nif NOT $\"%check%$\"==$\"0x00$\" echo ERROR: third partition table entry is not empty, please delete it if you wish to use this method && pause --wait=5 && configfile /${MB_DIR}/$JustISOName/ubuntu.lst$\r$\npartnew (hd0,3) 0x00 %CASPER%$\r$\nmap %CASPER% (hd0,3)" "all" "all" "$BootDir\${MB_DIR}\$JustISOName\ubuntu.lst"
     ${EndIf} 
    ${EndIf} 
    ${Else}
@@ -416,7 +424,7 @@ FunctionEnd
 ; Memtest86+ (Memory Testing Tool)
  ${ElseIf} $DistroName == "Memtest86+ (Memory Testing Tool)"
  ExecWait '"$PLUGINSDIR\7zG.exe" x "$ISOFile" -x![BOOT] -o"$BootDir\${MB_DIR}\$JustISOName\" -y'  
- ${WriteToFile} "#start $JustISOName$\r$\nLABEL $JustISOName$\r$\nMENU LABEL $JustISOName$\r$\nMENU INDENT 1$\r$\nLINUX /${MB_DIR}/$JustISOName/$JustISOName.bin$\r$\n#end $JustISOName" $R0
+ ${WriteToFile} "#start $JustISOName$\r$\nLABEL $JustISOName$\r$\nMENU LABEL $JustISOName$\r$\nMENU INDENT 1$\r$\nLINUX /${MB_DIR}/$JustISOName/$JustISOName$\r$\n#end $JustISOName" $R0
 
 ; Kon-Boot  
  ${ElseIf} $DistroName == "Kon-Boot FREE"
@@ -427,7 +435,7 @@ FunctionEnd
  RMDir /R "$EXEDIR\TEMPAUMBI"
  ${WriteToFile} "#start $JustISOName$\r$\nLABEL Kon-Boot ($JustISOName)$\r$\nMENU LABEL Kon-Boot ($JustISOName)$\r$\nMENU INDENT 1$\r$\nCONFIG /${MB_DIR}/menu/konboot.cfg$\r$\nAPPEND /${MB_DIR}/menu$\r$\n#end $JustISOName" $R0 
  File /oname=$PLUGINSDIR\konboot.cfg "Menu\konboot.cfg"  
- CopyFiles "$PLUGINSDIR\konboot.cfg" "$BootDir\${MB_DIR}\menu\konboot.cfg"
+ CopyFiles /SILENT "$PLUGINSDIR\konboot.cfg" "$BootDir\${MB_DIR}\menu\konboot.cfg"
  !insertmacro ReplaceInFile "SLUG" "$JustISOName" "all" "all" "$BootDir\${MB_DIR}\menu\konboot.cfg" 
  
  ${ElseIf} $DistroName == "Kon-Boot Purchased"
@@ -439,7 +447,7 @@ FunctionEnd
  RMDir /R "$EXEDIR\TEMPAUMBI"
  ${WriteToFile} "#start $JustISOName$\r$\nLABEL Kon-Boot ($JustISOName)$\r$\nMENU LABEL Kon-Boot ($JustISOName)$\r$\nMENU INDENT 1$\r$\nKERNEL /${MB_DIR}/grub.exe$\r$\nAPPEND --config-file=/${MB_DIR}/$JustISOName/konboot.lst" $R0 
  File /oname=$PLUGINSDIR\konboot.lst "Menu\konboot.lst"  
- CopyFiles "$PLUGINSDIR\konboot.lst" "$BootDir\${MB_DIR}\$JustISOName\konboot.lst"
+ CopyFiles /SILENT "$PLUGINSDIR\konboot.lst" "$BootDir\${MB_DIR}\$JustISOName\konboot.lst"
  !insertmacro ReplaceInFile "SLUG" "$JustISOName" "all" "all" "$BootDir\${MB_DIR}\$JustISOName\konboot.lst" 
  
 ; Falcon 4 Boot CD
@@ -459,7 +467,7 @@ FunctionEnd
 ; ${WriteToFile} "#start $JustISOName$\r$\nLABEL Windows Defender Offline ($JustISOName)$\r$\nMENU LABEL Windows Defender Offline ($JustISOName)$\r$\nMENU INDENT 1$\r$\nLINUX /${MB_DIR}/grub.exe$\r$\nAPPEND --config-file=$\"ls /${MB_DIR}/ISOS/$JustISO || find --set-root /${MB_DIR}/ISOS/$JustISO;map --heads=0 --sectors-per-track=0 /${MB_DIR}/ISOS/$JustISO (0xff) || map --heads=0 --sectors-per-track=0 --mem /${MB_DIR}/ISOS/$JustISO (0xff);map --hook;chainloader (0xff)$\"$\r$\n#end $JustISOName" $R0
  ${WriteToFile} "#start $JustISOName$\r$\nlabel Windows Defender Offline ($JustISOName)$\r$\nmenu label title Windows Defender Offline ($JustISOName)$\r$\nMENU INDENT 1$\r$\nKERNEL /${MB_DIR}/grub.exe$\r$\nAPPEND --config-file=/${MB_DIR}/menu/WDO.lst$\r$\n#end $JustISOName" $R0   
  File /oname=$PLUGINSDIR\WDO.lst "Menu\WDO.lst"  
- CopyFiles "$PLUGINSDIR\WDO.lst" "$BootDir\${MB_DIR}\menu\WDO.lst" 
+ CopyFiles /SILENT "$PLUGINSDIR\WDO.lst" "$BootDir\${MB_DIR}\menu\WDO.lst" 
  !insertmacro ReplaceInFile "SLUG" "$JustISO" "all" "all" "$BootDir\${MB_DIR}\menu\WDO.lst"  
  
 ; Windows (WIM) boot
@@ -467,10 +475,10 @@ FunctionEnd
  ExecWait '"$PLUGINSDIR\7zG.exe" x "$ISOFile" -o"$BootDir\${MB_DIR}\$JustISOName" -y -x![BOOT]*' 
   ;${WriteToFile} "#start $JustISOName$\r$\nLABEL $JustISOName$\r$\nMENU LABEL $JustISOName$\r$\nMENU INDENT 1$\r$\nCOM32 linux.c32$\r$\nappend wimboot initrdfile=$JustISOName/bootmgr,$JustISOName/boot/bcd,$JustISOName/boot/boot.sdi,$JustISOName/sources/boot.wim$\r$\n#end $JustISOName" $R0
    ${WriteToFile} "#start $JustISOName$\r$\ntitle Install $JustISOName - wimboot$\r$\nmap (hd0) (hd1)$\r$\nmap (hd1) (hd0)$\r$\nmap --hook$\r$\nkernel (hd1,0)/${MB_DIR}/wimboot$\r$\nkernel (hd1,0)/${MB_DIR}/wimboot$\r$\ninitrd @bootmgr=(hd1,0)/${MB_DIR}/$JustISOName/bootmgr @bcd=(hd1,0)/${MB_DIR}/$JustISOName/boot/bcd @boot.sdi=(hd1,0)/${MB_DIR}/$JustISOName/boot/boot.sdi @boot.wim=(hd1,0)/${MB_DIR}/$JustISOName/sources/boot.wim$\r$\n#end $JustISOName" $R0   
-  CopyFiles "$PLUGINSDIR\remount.cmd" "$BootDir\${MB_DIR}\$JustISOName\remount.cmd"    
-  CopyFiles "$PLUGINSDIR\ei.cfg" "$BootDir\${MB_DIR}\$JustISOName\sources\ei.cfg"	  
-  CopyFiles "$PLUGINSDIR\wimlib\stuff\autounattend.xml" "$BootDir\${MB_DIR}\$JustISOName\autounattend.xml"   
-  CopyFiles "$PLUGINSDIR\wimlib\stuff\au.txt" "$BootDir\${MB_DIR}\$JustISOName\au.txt"   
+  CopyFiles /SILENT "$PLUGINSDIR\remount.cmd" "$BootDir\${MB_DIR}\$JustISOName\remount.cmd"    
+  CopyFiles /SILENT "$PLUGINSDIR\ei.cfg" "$BootDir\${MB_DIR}\$JustISOName\sources\ei.cfg"	  
+  CopyFiles /SILENT "$PLUGINSDIR\wimlib\stuff\autounattend.xml" "$BootDir\${MB_DIR}\$JustISOName\autounattend.xml"   
+  CopyFiles /SILENT "$PLUGINSDIR\wimlib\stuff\au.txt" "$BootDir\${MB_DIR}\$JustISOName\au.txt"   
   !insertmacro ReplaceInFile "ISONAMESLUG" "$JustISOName" "all" "all" "$BootDir\${MB_DIR}\$JustISOName\remount.cmd"  
   !insertmacro ReplaceInFile "ISONAMESLUG" "$JustISOName" "all" "all" "$BootDir\${MB_DIR}\$JustISOName\autounattend.xml"  
   !insertmacro ReplaceInFile "ISONAMESLUG" "$JustISOName" "all" "all" "$BootDir\${MB_DIR}\$JustISOName\au.txt"  
@@ -497,10 +505,10 @@ FunctionEnd
   ${Else} ; For 32bit variants
    ${WriteToFile} "#start $JustISOName$\r$\ntitle Install $JustISOName - bootmgr at root$\r$\ndd if=()/${MB_DIR}/$JustISOName/boot/bcd of=()/boot/bcd$\r$\ndd if=()/${MB_DIR}/$JustISOName/efi/microsoft/boot/bcd of=()/efi/microsoft/boot/bcd$\r$\nchainloader /${MB_DIR}/$JustISOName/bootmgr$\r$\n#end $JustISOName" $R0 
   ${Endif}
-  CopyFiles "$PLUGINSDIR\remount.cmd" "$BootDir\${MB_DIR}\$JustISOName\remount.cmd"    
-  CopyFiles "$PLUGINSDIR\ei.cfg" "$BootDir\${MB_DIR}\$JustISOName\sources\ei.cfg"	  
-  CopyFiles "$PLUGINSDIR\wimlib\stuff\autounattend.xml" "$BootDir\${MB_DIR}\$JustISOName\autounattend.xml"   
-  CopyFiles "$PLUGINSDIR\wimlib\stuff\au.txt" "$BootDir\${MB_DIR}\$JustISOName\au.txt"     
+  CopyFiles /SILENT "$PLUGINSDIR\remount.cmd" "$BootDir\${MB_DIR}\$JustISOName\remount.cmd"    
+  CopyFiles /SILENT "$PLUGINSDIR\ei.cfg" "$BootDir\${MB_DIR}\$JustISOName\sources\ei.cfg"	  
+  CopyFiles /SILENT "$PLUGINSDIR\wimlib\stuff\autounattend.xml" "$BootDir\${MB_DIR}\$JustISOName\autounattend.xml"   
+  CopyFiles /SILENT "$PLUGINSDIR\wimlib\stuff\au.txt" "$BootDir\${MB_DIR}\$JustISOName\au.txt"     
   !insertmacro ReplaceInFile "ISONAMESLUG" "$JustISOName" "all" "all" "$BootDir\${MB_DIR}\$JustISOName\remount.cmd"  
   !insertmacro ReplaceInFile "ISONAMESLUG" "$JustISOName" "all" "all" "$BootDir\${MB_DIR}\$JustISOName\autounattend.xml"  
   !insertmacro ReplaceInFile "ISONAMESLUG" "$JustISOName" "all" "all" "$BootDir\${MB_DIR}\$JustISOName\au.txt"  
@@ -518,7 +526,7 @@ FunctionEnd
   ;!insertmacro ReplaceInFile "$BootDir" "BOOTDIRSLUG" "all" "all" "$BootDir\${MB_DIR}\$JustISOName\au.txt"  
   
 /*   ${IfNot} ${FileExists} "$BootDir\autounattend.xml" 
-  CopyFiles "$PLUGINSDIR\autounattend.xml" "$BootDir\autounattend.xml"  
+  CopyFiles /SILENT "$PLUGINSDIR\autounattend.xml" "$BootDir\autounattend.xml"  
   ${Endif}   */
 
  !include "x64.nsh"
@@ -641,14 +649,14 @@ FunctionEnd
 ; CopyFiles $ISOFile "$BootDir\${MB_DIR}\ISOS\$JustISO"
  ; ${WriteToFile} "title$\r$\nroot$\r$\n#start $JustISOName$\r$\ntitle Start $JustISOName Single Installer$\r$\nchainloader /bootmgr$\r$\n#end $JustISOName" $R0  
 ; File /oname=$PLUGINSDIR\firadisk.img "firadisk.img"  
-; CopyFiles "$PLUGINSDIR\firadisk.img" "$BootDir\${MB_DIR}\ISOS\firadisk.img"   
+; CopyFiles /SILENT "$PLUGINSDIR\firadisk.img" "$BootDir\${MB_DIR}\ISOS\firadisk.img"   
 
 ; Windows XP
  ${ElseIf} $DistroName == "Single Windows XP Installer" 
  CopyFiles $ISOFile "$BootDir\${MB_DIR}\ISOS\$JustISO"
  ${WriteToFile} "title$\r$\nroot$\r$\n#start $JustISOName$\r$\ntitle Begin Install of Windows XP from $JustISO (Stage 1)$\r$\nfind --set-root /${MB_DIR}/ISOS/$JustISO$\r$\nmap (hd0) (hd1)$\r$\nmap (hd1) (hd0)$\r$\nmap --mem /${MB_DIR}/ISOS/firadisk.img (fd0)$\r$\nmap --mem /${MB_DIR}/ISOS/firadisk.img (fd1)$\r$\nmap --mem /${MB_DIR}/ISOS/$JustISO (0xff)$\r$\nmap --hook$\r$\nchainloader (0xff)/I386/SETUPLDR.BIN$\r$\n$\r$\ntitle Continue Windows XP Install from $JustISO (Stage 2)$\r$\nfind --set-root /${MB_DIR}/ISOS/$JustISO$\r$\nmap (hd0) (hd1)$\r$\nmap (hd1) (hd0)$\r$\nmap --mem /${MB_DIR}/ISOS/$JustISO (0xff)$\r$\nmap --hook$\r$\nchainloader (hd0)+1$\r$\n$\r$\ntitle Boot Windows XP - If fails, reboot with USB removed (Stage 3)$\r$\nmap (hd1) (hd0)$\r$\nmap (hd0) (hd1)$\r$\nroot (hd1,0)$\r$\nfind --set-root /ntldr$\r$\nchainloader /ntldr$\r$\n#end $JustISOName" $R0  
  File /oname=$PLUGINSDIR\firadisk.img "firadisk.img"  
- CopyFiles "$PLUGINSDIR\firadisk.img" "$BootDir\${MB_DIR}\ISOS\firadisk.img"   
+ CopyFiles /SILENT "$PLUGINSDIR\firadisk.img" "$BootDir\${MB_DIR}\ISOS\firadisk.img"   
  
 ; Unlisted ISOs
 
@@ -669,7 +677,7 @@ FunctionEnd
  
  DetailPrint "Creating a Virtual Hard Disk for $JustISOName. Please be patient, this may take time..." 
  nsExec::ExecToLog '"DiskPart" /S $PLUGINSDIR\w2gdiskpart.txt' 
- CopyFiles "$PLUGINSDIR\dskvol.txt" "$BootDir\${MB_DIR}\$JustISOName\dskvol.txt" 
+ CopyFiles /SILENT "$PLUGINSDIR\dskvol.txt" "$BootDir\${MB_DIR}\$JustISOName\dskvol.txt" 
  Call GetVolNameDSK 
  StrCpy $VHDDisk "$VHDDisk" 1
  DetailPrint "Installing $JustISOName to Virtual Hard Disk. Please be patient, this may take time..." 
@@ -729,8 +737,8 @@ ${EndIf}
 
  
  ${ElseIf} $DistroName == "Try Unlisted ISO (Virtual Hard Disk DD)"  
- CopyFiles "$PLUGINSDIR\dd-diskpart.txt" "$BootDir\${MB_DIR}\$JustISOName\dd-diskpart.txt" 
- CopyFiles "$PLUGINSDIR\diskpartdetach.txt" "$BootDir\${MB_DIR}\$JustISOName\diskpartdetach.txt"   
+ CopyFiles /SILENT "$PLUGINSDIR\dd-diskpart.txt" "$BootDir\${MB_DIR}\$JustISOName\dd-diskpart.txt" 
+ CopyFiles /SILENT "$PLUGINSDIR\diskpartdetach.txt" "$BootDir\${MB_DIR}\$JustISOName\diskpartdetach.txt"   
  Call SetISOSize
  IntOp $VHDSize $SizeOfCasper + 100 ; add buffer space for vhd
  !insertmacro ReplaceInFile "DSK" "$BootDir\${MB_DIR}\$JustISOName" "all" "all" "$BootDir\${MB_DIR}\$JustISOName\dd-diskpart.txt" 
@@ -748,16 +756,16 @@ ${EndIf}
  CopyFiles $ISOFile "$BootDir\${MB_DIR}\ISOS\$JustISO"
  ${WriteToFile} "#start $JustISOName$\r$\nlabel $JustISOName$\r$\nmenu label $JustISOName$\r$\nMENU INDENT 1$\r$\nKERNEL /${MB_DIR}/grub.exe$\r$\nAPPEND --config-file=/${MB_DIR}/menu/sgd.lst$\r$\n#end $JustISOName" $R0   
  File /oname=$PLUGINSDIR\sgd.lst "Menu\sgd.lst"  
- CopyFiles "$PLUGINSDIR\sgd.lst" "$BootDir\${MB_DIR}\menu\sgd.lst" 
+ CopyFiles /SILENT "$PLUGINSDIR\sgd.lst" "$BootDir\${MB_DIR}\menu\sgd.lst" 
  !insertmacro ReplaceInFile "SLUG" "$JustISO" "all" "all" "$BootDir\${MB_DIR}\menu\sgd.lst"  
 
  ${ElseIf} $DistroName == "Try Unlisted ISO (Virtual Hard Disk)"
- CopyFiles "$PLUGINSDIR\autounattend.xml" "$BootDir\${MB_DIR}\$JustISOName\autounattend.xml"   
- CopyFiles "$PLUGINSDIR\vhdremount.cmd" "$BootDir\${MB_DIR}\$JustISOName\vhdremount.cmd" 
- CopyFiles "$PLUGINSDIR\wimlib\stuff\au.txt" "$BootDir\${MB_DIR}\$JustISOName\au.txt"   
+ CopyFiles /SILENT "$PLUGINSDIR\autounattend.xml" "$BootDir\${MB_DIR}\$JustISOName\autounattend.xml"   
+ CopyFiles /SILENT "$PLUGINSDIR\vhdremount.cmd" "$BootDir\${MB_DIR}\$JustISOName\vhdremount.cmd" 
+ CopyFiles /SILENT "$PLUGINSDIR\wimlib\stuff\au.txt" "$BootDir\${MB_DIR}\$JustISOName\au.txt"   
  
- CopyFiles "$PLUGINSDIR\diskpart.txt" "$BootDir\${MB_DIR}\$JustISOName\diskpart.txt" 
- CopyFiles "$PLUGINSDIR\diskpartdetach.txt" "$BootDir\${MB_DIR}\$JustISOName\diskpartdetach.txt"   
+ CopyFiles /SILENT "$PLUGINSDIR\diskpart.txt" "$BootDir\${MB_DIR}\$JustISOName\diskpart.txt" 
+ CopyFiles /SILENT "$PLUGINSDIR\diskpartdetach.txt" "$BootDir\${MB_DIR}\$JustISOName\diskpartdetach.txt"   
  
  !insertmacro ReplaceInFile "ISONAMESLUG" "$JustISOName" "all" "all" "$BootDir\${MB_DIR}\$JustISOName\vhdremount.cmd"  
  !insertmacro ReplaceInFile "ISONAMESLUG" "$JustISOName" "all" "all" "$BootDir\${MB_DIR}\$JustISOName\autounattend.xml"  
@@ -789,13 +797,13 @@ ${EndIf}
  ${WriteToFile} "#start $JustISOName$\r$\ntitle Boot $JustISO$\r$\nmap (hd0) (hd1)$\r$\nmap (hd1) (hd0)$\r$\nmap --heads=0 --sectors-per-track=0 /${MB_DIR}/$JustISOName/$JustISOName.vhd (hd1)$\r$\nmap --hook$\r$\nchainloader (hd1)+1$\r$\nrootnoverify (hd1)$\r$\n#end $JustISOName" $R0    
  
  
-# The following Grub at Partition 4 entry adds a 4th partition table to the USB device and uses this as a placeholder for the ISO. 
+# The following Grub at Partition 4 entry adds a 4th partition table entry to the USB device and uses this as a placeholder for the ISO.
 # Entry derived from information obtained from Steve of rmprepusb.com. Steve said the following were his original sources: http://reboot.pro/topic/9916-grub4dos-isohybrided/page-2#entry88531 and http://reboot.pro/topic/9916-grub4dos-isohybrided/page-2#entry164127
  ${ElseIf} $DistroName == "Try Unlisted ISO (GRUB Partition 4)" 
  CopyFiles $ISOFile "$BootDir\${MB_DIR}\ISOS\$JustISO"
- ; ${WriteToFile} "#start $JustISOName$\r$\n#Modify the following entry if it does not boot$\r$\ntitle Boot $JustISOName$\r$\nset ISO=/${MB_DIR}/ISOS/$JustISO$\r$\nfind --set-root %ISO%$\r$\nparttype (hd0,3) | set check=$\r$\nset check=%check:~-5,4% $\r$\nif %check%==0x00 partnew (hd0,3) 0x00 %ISO%$\r$\nif NOT %check%==0x00 echo ERROR: Fourth partition is not empty, please delete it if you wish to use this method! && pause --wait=5 && configfile /${MB_DIR}/menu/grubpart4.lst$\r$\nmap %ISO% (0xff)$\r$\nmap --hook$\r$\nroot (0xff)$\r$\nchainloader (0xff)$\r$\n#end $JustISOName" $R0
- ; ${WriteToFile} "#start $JustISOName$\r$\nparttype (hd0,3) | set check=$\r$\nset check=%check:~-5,4%$\r$\nif %check%==0x00 partnew (hd0,3) 0 0 0$\r$\nif not %check%==0x00 echo WARNING: Fourth partition is not empty, please delete it if you wish to use this boot method! && pause --wait=5 && configfile /${MB_DIR}/menu/menu.lst$\r$\n#Modify the following entry if it does not boot$\r$\ntitle Boot $JustISOName$\r$\nset ISO=/${MB_DIR}/ISOS/$JustISO$\r$\nfind --set-root %ISO%$\r$\nparttype (hd0,3) | set check=$\r$\nset check=%check:~-5,4% $\r$\nif %check%==0x00 partnew (hd0,3) 0x00 %ISO%$\r$\nif NOT %check%==0x00 echo ERROR: Fourth partition is not empty, please delete it if you wish to use this method! && pause --wait=5 && configfile /${MB_DIR}/menu/grubpart4.lst$\r$\nmap %ISO% (0xff)$\r$\nmap --hook$\r$\nroot (0xff)$\r$\nchainloader (0xff)$\r$\n#end $JustISOName" $R0
- ${WriteToFile} "#start $JustISOName$\r$\n#Modify the following entry if it does not boot$\r$\ntitle Boot $JustISOName$\r$\nset ISO=/${MB_DIR}/ISOS/$JustISO$\r$\nfind --set-root %ISO%$\r$\n$\r$\nparttype (hd0,3) | set check=$\r$\nset check=%check:~-5,4%$\r$\nif $\"%check%$\"==$\"0x00$\" partnew (hd0,3) 0 0 0$\r$\nif NOT $\"%check%$\"==$\"0x00$\" echo ERROR: Fourth partition table is not empty, please delete it if you wish to use this method && pause --wait=5 && configfile /${MB_DIR}/menu/grubpart4.lst$\r$\npartnew (hd0,3) 0x00 %ISO%$\r$\nmap %ISO% (0xff)$\r$\nmap --hook$\r$\nroot (0xff)$\r$\nchainloader (0xff)$\r$\n#end $JustISOName" $R0
+ ; ${WriteToFile} "#start $JustISOName$\r$\n#Modify the following entry if it does not boot$\r$\ntitle Boot $JustISOName$\r$\nset ISO=/${MB_DIR}/ISOS/$JustISO$\r$\nfind --set-root %ISO%$\r$\nparttype (hd0,3) | set check=$\r$\nset check=%check:~-5,4% $\r$\nif %check%==0x00 partnew (hd0,3) 0x00 %ISO%$\r$\nif NOT %check%==0x00 echo ERROR: Fourth partition table entry is not empty, please delete it if you wish to use this method! && pause --wait=5 && configfile /${MB_DIR}/menu/grubpart4.lst$\r$\nmap %ISO% (0xff)$\r$\nmap --hook$\r$\nroot (0xff)$\r$\nchainloader (0xff)$\r$\n#end $JustISOName" $R0
+ ; ${WriteToFile} "#start $JustISOName$\r$\nparttype (hd0,3) | set check=$\r$\nset check=%check:~-5,4%$\r$\nif %check%==0x00 partnew (hd0,3) 0 0 0$\r$\nif not %check%==0x00 echo WARNING: Fourth partition is not empty, please delete it if you wish to use this boot method! && pause --wait=5 && configfile /${MB_DIR}/menu/menu.lst$\r$\n#Modify the following entry if it does not boot$\r$\ntitle Boot $JustISOName$\r$\nset ISO=/${MB_DIR}/ISOS/$JustISO$\r$\nfind --set-root %ISO%$\r$\nparttype (hd0,3) | set check=$\r$\nset check=%check:~-5,4% $\r$\nif %check%==0x00 partnew (hd0,3) 0x00 %ISO%$\r$\nif NOT %check%==0x00 echo ERROR: Fourth partition table entry is not empty, please delete it if you wish to use this method! && pause --wait=5 && configfile /${MB_DIR}/menu/grubpart4.lst$\r$\nmap %ISO% (0xff)$\r$\nmap --hook$\r$\nroot (0xff)$\r$\nchainloader (0xff)$\r$\n#end $JustISOName" $R0
+ ${WriteToFile} "#start $JustISOName$\r$\n#Modify the following entry if it does not boot$\r$\ntitle Boot $JustISOName$\r$\nset ISO=/${MB_DIR}/ISOS/$JustISO$\r$\nfind --set-root %ISO%$\r$\n$\r$\nparttype (hd0,3) | set check=$\r$\nset check=%check:~-5,4%$\r$\nif $\"%check%$\"==$\"0x00$\" partnew (hd0,3) 0 0 0$\r$\nif NOT $\"%check%$\"==$\"0x00$\" echo ERROR: Fourth partition table entry is not empty, please delete it if you wish to use this method && pause --wait=5 && configfile /${MB_DIR}/menu/grubpart4.lst$\r$\npartnew (hd0,3) 0x00 %ISO%$\r$\nmap %ISO% (0xff)$\r$\nmap --hook$\r$\nroot (0xff)$\r$\nchainloader (0xff)$\r$\n#end $JustISOName" $R0
  
  ${ElseIf} $DistroName == "Try Unlisted ISO (GRUB)" 
  CopyFiles $ISOFile "$BootDir\${MB_DIR}\ISOS\$JustISO"
@@ -810,21 +818,21 @@ ${EndIf}
  CopyFiles $ISOFile "$BootDir\${MB_DIR}\ISOS\$JustISO"
  ${WriteToFile} "#start $JustISOName$\r$\nlabel Ultimate Boot CD ($JustISOName)$\r$\nmenu label Ultimate Boot CD ($JustISOName)$\r$\nMENU INDENT 1$\r$\nKERNEL /${MB_DIR}/grub.exe$\r$\nAPPEND --config-file=/${MB_DIR}/menu/ubcd.lst$\r$\n#end $JustISOName" $R0   
  File /oname=$PLUGINSDIR\ubcd.lst "Menu\ubcd.lst"  
- CopyFiles "$PLUGINSDIR\ubcd.lst" "$BootDir\${MB_DIR}\menu\ubcd.lst" 
+ CopyFiles /SILENT "$PLUGINSDIR\ubcd.lst" "$BootDir\${MB_DIR}\menu\ubcd.lst" 
  !insertmacro ReplaceInFile "SLUG" "$JustISO" "all" "all" "$BootDir\${MB_DIR}\menu\ubcd.lst"  
  
  ${ElseIf} $DistroName == "Puppy Arcade"  
  ExecWait '"$PLUGINSDIR\7zG.exe" x "$ISOFile" -x![BOOT] -o"$BootDir\${MB_DIR}\$JustISOName\" -y'  
  ${WriteToFile} "#start $JustISOName$\r$\nlabel $JustISOName$\r$\nmenu label $JustISOName$\r$\nMENU INDENT 1$\r$\nKERNEL /${MB_DIR}/grub.exe$\r$\nAPPEND --config-file=/${MB_DIR}/$JustISOName/arcade.lst$\r$\n#end $JustISOName" $R0   
  File /oname=$PLUGINSDIR\arcade.lst "Menu\arcade.lst"  
- CopyFiles "$PLUGINSDIR\arcade.lst" "$BootDir\${MB_DIR}\$JustISOName\arcade.lst" 
+ CopyFiles /SILENT "$PLUGINSDIR\arcade.lst" "$BootDir\${MB_DIR}\$JustISOName\arcade.lst" 
  !insertmacro ReplaceInFile "SLUG" "$JustISOName" "all" "all" "$BootDir\${MB_DIR}\$JustISOName\arcade.lst"  
  
  ${ElseIf} $DistroName == "Super Grub2 Disk"  
  ExecWait '"$PLUGINSDIR\7zG.exe" x "$ISOFile" -x![BOOT] -o"$BootDir\${MB_DIR}\$JustISOName\" -y'  
  ${WriteToFile} "#start $JustISOName$\r$\nlabel $JustISOName$\r$\nmenu label $JustISOName$\r$\nMENU INDENT 1$\r$\nKERNEL /${MB_DIR}/grub.exe$\r$\nAPPEND --config-file=/${MB_DIR}/$JustISOName/sgd.lst$\r$\n#end $JustISOName" $R0   
  File /oname=$PLUGINSDIR\sgd.lst "Menu\sgd.lst"  
- CopyFiles "$PLUGINSDIR\sgd.lst" "$BootDir\${MB_DIR}\$JustISOName\sgd.lst" 
+ CopyFiles /SILENT "$PLUGINSDIR\sgd.lst" "$BootDir\${MB_DIR}\$JustISOName\sgd.lst" 
  !insertmacro ReplaceInFile "SLUG" "$JustISOName" "all" "all" "$BootDir\${MB_DIR}\$JustISOName\sgd.lst"   
  
 ; Vba32 Rescue - NOT READY YET

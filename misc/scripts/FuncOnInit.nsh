@@ -1,5 +1,8 @@
 ; --- Stuff to do at startup of script ---
 Function .onInit
+InitPluginsDir
+;  !insertmacro MUI_LANGDLL_DISPLAY ;Show Multilanguagebox
+
 StrCpy $R9 0 ; we start on page 0
 ;StrCpy $InstallButton ""
  StrCpy $FileFormat "ISO"

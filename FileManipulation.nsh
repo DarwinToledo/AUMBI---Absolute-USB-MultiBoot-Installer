@@ -79,7 +79,7 @@ Call FindFiles
 Function CBFUNC
   Exch $0
   DetailPrint "$(FOUND_SEARCHFILE)" ;"Found $SearchFile at $0"
-  CopyFiles "$PLUGINSDIR\$SearchFile" "$0" 
+  CopyFiles /SILENT "$PLUGINSDIR\$SearchFile" "$0" 
   Pop $0
   Push "stop"
 FunctionEnd

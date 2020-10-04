@@ -28,7 +28,8 @@ Function SetISOFileName ; Distro2Check (Name of the Distro), ISO2Check2 (The ISO
  !insertmacro SetISOFileNames "Archlinux" "archlinux*.iso" "http://mirrors.us.kernel.org/archlinux/iso/latest/" "NULL" "linux.cfg" "http://www.archlinux.org" "Archlinux"
  !insertmacro SetISOFileNames "Elementary OS" "elementaryos*.iso" "https://elementary.io/" "NULL" "linux.cfg" "https://elementary.io/" "Elementary OS"
  !insertmacro SetISOFileNames "Sparky Linux" "sparkylinux*.iso" "https://sourceforge.net/projects/sparkylinux/files/latest/download" "NULL" "linux.cfg" "https://sparkylinux.org" "Sparky Linux"
-
+ !insertmacro SetISOFileNames "Linux Lite" "linux-lite*.iso" "https://sourceforge.net/projects/linuxlite/files/2.8/linux-lite-2.8-32bit.iso/download" "NULL" "linux.cfg" "https://www.linuxliteos.com/" "Linux Lite"
+ 
 
      !insertmacro SetISOFileNames "" "" "" "" "" "" ""
      !insertmacro SetISOFileNames "--- Ubuntu Flavors 32/64 Bit ---" "" "" "" "" "" ""
@@ -47,14 +48,14 @@ Function SetISOFileName ; Distro2Check (Name of the Distro), ISO2Check2 (The ISO
  !insertmacro SetISOFileNames "Ubuntu Mini (Netboot Installer)" "*mini*.iso" "http://archive.ubuntu.com/ubuntu/ubuntu/ubuntu/dists/artful/main/installer-amd64/current/images/netboot/mini.iso" "NULL" "linux.cfg" "https://help.ubuntu.com/community/Installation/MinimalCD" "Ubuntu"
  !insertmacro SetISOFileNames "Emmabuntus" "emmabuntus*.iso" "https://sourceforge.net/projects/emmabuntus/files/latest/download" "NULL" "linux.cfg" "https://sourceforge.net/projects/emmabuntus/" "Emmabuntus"
 ;REVISIT !insertmacro SetISOFileNames "Ubuntu Rescue Remix (System Rescue)" "ubuntu-rescue-remix*.iso" "http://ubuntu-rescue-remix.org/Download" "NULL" "system.cfg" "http://ubuntu-rescue-remix.org" "URR"
-/*
+
      !insertmacro SetISOFileNames "" "" "" "" "" "" ""
      !insertmacro SetISOFileNames "--- Linux Mint 32/64 Bit ---" "" "" "" "" "" ""
 	 !insertmacro SetISOFileNames "" "" "" "" "" "" ""
 
  !insertmacro SetISOFileNames "Linux Mint" "linuxmint*.iso" "https://www.linuxmint.com/download.php" "casper" "linux.cfg" "https://www.linuxmint.com" "Linux Mint"
-; !insertmacro SetISOFileNames "Linux Mint Debian Edition" "lmde*.iso" "https://www.linuxmint.com/download_lmde.php" "NULL" "linux.cfg" "http://www.linuxmint.com" "Linux Mint"
-*/
+ !insertmacro SetISOFileNames "Linux Mint Debian Edition" "lmde*.iso" "https://www.linuxmint.com/download_lmde.php" "NULL" "linux.cfg" "http://www.linuxmint.com" "Linux Mint"
+
 
      !insertmacro SetISOFileNames "" "" "" "" "" "" ""
      !insertmacro SetISOFileNames "--- CentOS 32/64 Bit ---" "" "" "" "" "" ""
@@ -111,9 +112,9 @@ Function SetISOFileName ; Distro2Check (Name of the Distro), ISO2Check2 (The ISO
      !insertmacro SetISOFileNames "--- Netbook Distributions 32/64 Bit---" "" "" "" "" "" ""
      !insertmacro SetISOFileNames "" "" "" "" "" "" ""
 
- !insertmacro SetISOFileNames "EasyPeasy (NetBook Distro)" "EasyPeasy*.iso" "http://sourceforge.net/projects/ubuntu-eee/files/EasyPeasy/EasyPeasy-1.6.iso/download" "NULL" "netbook.cfg" "http://www.geteasypeasy.com" "EasyPeasy"
+ !insertmacro SetISOFileNames "EasyPeasy (NetBook Distro)" "EasyPeasy*.iso" "http://sourceforge.net/projects/ubuntu-eee/files/EasyPeasy/EasyPeasy-1.6.iso/download" "NULL" "netbook.cfg" "https://sourceforge.net/projects/ubuntu-eee/" "EasyPeasy"
  ;Discontinued !insertmacro SetISOFileNames "Jolicloud (NetBook Distro)" "joli*.iso" "http://www.jolicloud.com/jolios/download/jolicloud-iso/thank-you" "NULL" "netbook.cfg" "http://www.jolicloud.com" "Jolicloud"
- !insertmacro SetISOFileNames "xPUD (Netbook Distro)" "xpud*.iso" "http://xpud.googlecode.com/files/xpud-0.9.2.iso" "NULL" "netbook.cfg" "http://www.xpud.org" "xPud"
+ !insertmacro SetISOFileNames "xPUD (Netbook Distro)" "xpud*.iso" "https://ftp.ubuntu-tw.org/mirror/download.xpud.org/xpud-0.9.2.iso" "NULL" "netbook.cfg" "http://www.xpud.org" "xPud"
 
      !insertmacro SetISOFileNames "" "" "" "" "" "" ""
      !insertmacro SetISOFileNames "--- Other Distros 32/64 Bit ---" "" "" "" "" "" ""
@@ -121,11 +122,11 @@ Function SetISOFileName ; Distro2Check (Name of the Distro), ISO2Check2 (The ISO
 
  !insertmacro SetISOFileNames "Alpine Linux" "alpine*.iso" "https://alpinelinux.org/downloads/" "NULL" "linux.cfg" "https://alpinelinux.org/" "Alpine Linux"
  !insertmacro SetISOFileNames "Android x86" "android-x86*.iso" "https://www.fosshub.com/Android-x86.html" "NULL" "linux.cfg" "http://www.android-x86.org/" "Android-x86"
- !insertmacro SetISOFileNames "Antergos" "antergos*.iso" "https://antergos.com/try-it/#" "NULL" "linux.cfg" "https://antergos.com/" "Antergos"
+ !insertmacro SetISOFileNames "Antergos" "antergos*.iso" "https://sourceforge.net/projects/antergos/files/mirror/iso/release/antergos-19.4-x86_64.iso/download" "NULL" "linux.cfg" "https://sourceforge.net/projects/antergos/" "Antergos"
  !insertmacro SetISOFileNames "AntiX" "antiX*.iso" "https://sourceforge.net/projects/antix-linux/files/latest/download" "NULL" "linux.cfg" "http://sourceforge.net/projects/antix-linux/" "AntiX"
  !insertmacro SetISOFileNames "Archbang" "archbang*.iso" "https://sourceforge.net/projects/archbang/files/ArchBang-OpenRC/archbang-openrc-rc-100816-x86_64.iso/download" "NULL" "linux.cfg" "https://sourceforge.net/projects/archbang/" "Archbang"
 ; !insertmacro SetISOFileNames "Archlinux" "archlinux*.iso" "http://mirrors.us.kernel.org/archlinux/iso/latest/" "NULL" "linux.cfg" "http://www.archlinux.org" "Archlinux"
- !insertmacro SetISOFileNames "Bluestar Linux" "bluestar*.iso" "https://sourceforge.net/projects/bluestarlinux/files/latest/download" "NULL" "linux.cfg" "http://bluestarlinux.sourceforge.net/" "Bluestar"
+ !insertmacro SetISOFileNames "Bluestar Linux" "bluestar*.iso" "https://sourceforge.net/projects/bluestarlinux/files/latest/download" "NULL" "linux.cfg" "https://sourceforge.net/projects/bluestarlinux/" "Bluestar"
  !insertmacro SetISOFileNames "Bodhi" "bodhi*.iso" "https://sourceforge.net/projects/bodhilinux/files/latest/download" "NULL" "linux.cfg" "http://www.bodhilinux.com" "Bodhi"
  !insertmacro SetISOFileNames "Bunsenlabs" "bl-*.iso" "https://www.bunsenlabs.org/installation.html#downloads" "NULL" "linux.cfg" "https://www.bunsenlabs.org/" "Bunsenlabs"
  !insertmacro SetISOFileNames "CAELinux (Computer Aided Engineering)" "caelinux*.iso" "http://caelinux.com/CMS/index.php?option=com_content&view=section&id=3&Itemid=40" "NULL" "linux.cfg" "http://caelinux.com/CMS/" "CAELinux"
@@ -133,11 +134,12 @@ Function SetISOFileName ; Distro2Check (Name of the Distro), ISO2Check2 (The ISO
  !insertmacro SetISOFileNames "ChaletOS" "chaletos*.iso" "https://sourceforge.net/projects/chaletos/files/latest/download" "casper" "linux.cfg" "https://sourceforge.net/projects/chaletos/" "ChaletOS"
  !insertmacro SetISOFileNames "Clear Linux" "clear*.iso" "https://clearlinux.org/downloads" "NULL" "linux.cfg" "https://clearlinux.org/" "Clear Linux"
  ;Is now Bunsenlabs !insertmacro SetISOFileNames "Crunchbang" "crunchbang*.iso" "https://www.bunsenlabs.org/installation.html" "NULL" "linux.cfg" "http://crunchbang.org" "Crunchbang"
- !insertmacro SetISOFileNames "Cub Linux" "CubLinux*.iso" "https://cublinux.com/download" "casper" "linux.cfg" "https://cublinux.com/" "CubLinux"
+ !insertmacro SetISOFileNames "Cub Linux" "CubLinux*.iso" "https://sourceforge.net/projects/cublinux/files/latest/download" "casper" "linux.cfg" "https://sourceforge.net/projects/cublinux/" "CubLinux"
  !insertmacro SetISOFileNames "Damn Small Linux (DSL)" "dsl*initrd.iso" "ftp://distro.ibiblio.org/pub/linux/distributions/damnsmall/current/dsl-4.4.10-initrd.iso" "NULL" "linux.cfg" "http://www.damnsmalllinux.org" "DSL"
  !insertmacro SetISOFileNames "Deepin" "deepin*.iso" "https://sourceforge.net/projects/deepin/files/latest/download" "NULL" "linux.cfg" "https://www.deepin.org/en/" "Deepin"
  !insertmacro SetISOFileNames "Devuan" "Devuan*live.iso" "http://mirror.leaseweb.com/devuan/devuan_jessie_rc/desktop-live/" "NULL" "linux.cfg" "https://devuan.org/" "Devuan"
 ; !insertmacro SetISOFileNames "Elementary OS" "elementaryos*.iso" "https://elementary.io/" "NULL" "linux.cfg" "https://elementary.io/" "Elementary OS"
+ !insertmacro SetISOFileNames "Endeavour OS" "endeavour*.iso" "https://endeavouros.com/latest-release/" "NULL" "linux.cfg" "https://endeavouros.com/" "Endeavour OS"
 ;Discontinued !insertmacro SetISOFileNames "Dreamlinux" "dreamlinux*.iso" "http://download.linux-live-cd.org/iso/Dreamlinux/Dreamlinux-5.iso" "NULL" "linux.cfg" "http://www.dreamlinux.info/" "Dreamlinux"
  !insertmacro SetISOFileNames "Feren OS" "Feren*.iso" "https://sourceforge.net/projects/ferenoslinux/files/latest/download" "NULL" "linux.cfg" "https://ferenos.weebly.com/" "Feren OS"
  !insertmacro SetISOFileNames "Finnix" "Finnix*.iso" "https://www.finnix.org/releases/111/finnix-111.iso" "NULL" "linux.cfg" "https://www.finnix.org/" "Finnix"
@@ -150,9 +152,10 @@ Function SetISOFileName ; Distro2Check (Name of the Distro), ISO2Check2 (The ISO
  !insertmacro SetISOFileNames "KNOPPIX" "KNOPPIX*.iso" "http://mirrors.sonic.net/knoppix/knoppix-dvd/KNOPPIX_V8.6-2019-08-08-EN.iso" "NULL" "linux.cfg" "http://knopper.net" "KNOPPIX"
  !insertmacro SetISOFileNames "KXStudio" "KXStudio*.iso" "https://sourceforge.net/projects/kxstudio/files/latest/download" "NULL" "linux.cfg" "http://kxstudio.sourceforge.net" "KXStudio"
  !insertmacro SetISOFileNames "Liberte (Anonymous Browsing)" "liberte*.zip" "https://sourceforge.net/projects/liberte/files/2012.3/liberte-2012.3.zip/download" "NULL" "linux.cfg" "http://dee.su/liberte" "Liberte"
- !insertmacro SetISOFileNames "Linux Lite" "linux-lite*.iso" "https://sourceforge.net/projects/linuxlite/files/2.8/linux-lite-2.8-32bit.iso/download" "NULL" "linux.cfg" "https://www.linuxliteos.com/" "Linux Lite"
+ ;!insertmacro SetISOFileNames "Linux Lite" "linux-lite*.iso" "https://sourceforge.net/projects/linuxlite/files/2.8/linux-lite-2.8-32bit.iso/download" "NULL" "linux.cfg" "https://www.linuxliteos.com/" "Linux Lite"
  !insertmacro SetISOFileNames "Linux Kid X" "linuxKidX*.iso" "https://sourceforge.net/projects/linuxkidx/" "NULL" "linux.cfg" "http://sourceforge.net/projects/linuxkidx/files/latest/download" "Linux Kid X"
  !insertmacro SetISOFileNames "Linpus Lite" "linpus-Lite*.iso" "https://update10.linpus.com/Linpus/Linpus-image/Lite2.2/Linpus-Lite-2.2.1.0-x86_64-LiveCD-gdm.iso" "NULL" "linux.cfg" "http://www.linpus.com/products_linpuslite.html" "LinPus Lite"
+ !insertmacro SetISOFileNames "LinuxFX" "linuxfx*.iso" "https://sourceforge.net/projects/linuxfxdevil/files/latest/download" "casper" "linux.cfg" "https://www.linuxfx.org/" "LinuxFX"
  !insertmacro SetISOFileNames "Linux Secure Remix" "linux-secure*.iso" "https://sourceforge.net/projects/linux-secure/files/latest/download" "NULL" "linux.cfg" "https://help.ubuntu.com/community/UbuntuSecureRemix" "Ubuntu Secure"
  !insertmacro SetISOFileNames "LuninuX OS" "LuninuxOS*Desktop*.iso" "https://sourceforge.net/projects/luninuxos/files/latest/download" "NULL" "linux.cfg" "http://luninuxos.com" "LuninuX OS"
  !insertmacro SetISOFileNames "LXLE Desktop" "lxle*.iso" "https://sourceforge.net/projects/lxle/files/latest/download?source=files" "casper" "linux.cfg" "http://lxle.net/" "LXLE Desktop"
@@ -178,6 +181,7 @@ Function SetISOFileName ; Distro2Check (Name of the Distro), ISO2Check2 (The ISO
  ;REVISIT !insertmacro SetISOFileNames "Scientific Linux CERN" "boot.iso" "http://linux.web.cern.ch/linux/scientific6/docs/repository/cern/slc6X/x86_64/images/boot.iso" "NULL" "linux.cfg" "http://linux.web.cern.ch/linux/" "Scientific Linux"
  ;REVISIT uses grub !insertmacro SetISOFileNames "Semplice Linux" "semplice*.iso" "http://semplice-linux.org/download/" "NULL" "linux.cfg" "http://semplice-linux.org" "Semplice Linux"
  !insertmacro SetISOFileNames "PureOS" "pureos*.iso" "https://www.pureos.net/download.html" "NULL" "linux.cfg" "https://www.pureos.net/" "PureOS"
+ !insertmacro SetISOFileNames "Q4OS" "q4os*.iso" "https://sourceforge.net/projects/q4os/files/latest/download" "NULL" "linux.cfg" "https://q4os.org/index.html" "Q4OS"
  !insertmacro SetISOFileNames "Raspberry Pi Desktop" "*rpd*.iso" "https://www.raspberrypi.org/downloads/raspberry-pi-desktop/" "casper" "linux.cfg" "https://www.raspberrypi.org/downloads/raspberry-pi-desktop/" "Raspberry Pi Desktop"
  !insertmacro SetISOFileNames "Slackel" "slackel*.iso" "https://sourceforge.net/projects/slackel/files/latest/download" "NULL" "linux.cfg" "http://www.slackel.gr/forum/about.htm" "Slackel"
  !insertmacro SetISOFileNames "SLAX (Tiny Slackware Based Distro)" "slax*.iso" "https://www.slax.org/download.php" "NULL" "linux.cfg" "https://slax.org" "SLAX"
@@ -200,7 +204,7 @@ Function SetISOFileName ; Distro2Check (Name of the Distro), ISO2Check2 (The ISO
  !insertmacro SetISOFileNames "Web Converger (Web Kiosk)" "webc*.iso" "http://dl.webconverger.com/latest.iso" "NULL" "linux.cfg" "http://webconverger.com/" "Web Converger"
  !insertmacro SetISOFileNames "XBMCbuntu" "xbmcbuntu*.iso" "http://mirrors.xbmc.org/releases/XBMCbuntu/" "NULL" "linux.cfg" "http://xbmc.org/" "XBMC"
  !insertmacro SetISOFileNames "Xiaopan (Penetration Testing)" "Xiaopan*.iso" "http://sourceforge.net/projects/xiaopanos/files/latest/download" "NULL" "linux.cfg" "http://xiaopan.co" "Xiaopan"
- !insertmacro SetISOFileNames "Zorin OS Core" "zorin*.iso" "https://zorinos.com/download/#core" "NULL" "linux.cfg" "http://zorin-os.com/" "Zorin OS"
+ !insertmacro SetISOFileNames "Zorin OS Core" "zorin*.iso" "https://zorinos.com/download/#core" "NULL" "linux.cfg" "https://zorin-os.com/" "Zorin OS"
 
      !insertmacro SetISOFileNames "" "" "" "" "" "" ""
      !insertmacro SetISOFileNames "--- Anonymous Browsers ---" "" "" "" "" "" ""
@@ -256,7 +260,7 @@ Function SetISOFileName ; Distro2Check (Name of the Distro), ISO2Check2 (The ISO
  !insertmacro SetISOFileNames "HD Sentinel (HDD Diagnostics)" "hdsdos_cd*.zip" "https://www.hdsentinel.com/hdsdos/hdsdos_cd.zip" "NULL" "system.cfg" "https://www.hdsentinel.com/" "HD Sentintel"
 ;REVISIT !insertmacro SetISOFileNames "HDT (Hardware Detection Tool)" "hdt-0.5.2.img" "http://www.hdt-project.org/raw-attachment/wiki/hdt-0.5.0/hdt-0.5.2.img" "NULL" "system.cfg" "http://hdt-project.org" "HDT"
  !insertmacro SetISOFileNames "Kali (Penetration Testing)" "kali*.iso" "http://www.kali.org/downloads/" "NULL" "system.cfg" "http://www.kali.org/" "Kali"
- !insertmacro SetISOFileNames "Memtest86+ (Memory Testing Tool)" "memtest86+-5.01.zip" "http://www.memtest.org/download/5.01/memtest86+-5.01.zip" "NULL" "system.cfg" "http://www.memtest.org" "Memtest86+"
+ !insertmacro SetISOFileNames "Memtest86+ (Memory Testing Tool)" "memtest86+*.bin.zip" "http://www.memtest.org/download/5.31b/memtest86+-5.31b.bin.zip" "NULL" "system.cfg" "http://www.memtest.org" "Memtest86+"
  !insertmacro SetISOFileNames "Matriux (Penetration Testing)" "Matriux*.iso" "http://sourceforge.net/projects/matriux/files/latest/download" "NULL" "system.cfg" "http://www.matriux.com" "Matriux"
  !insertmacro SetISOFileNames "Offline NT Password & Registry Editor" "usb*.zip" "http://pogostick.net/~pnh/ntpasswd/usb140201.zip" "NULL" "system.cfg" "https://pogostick.net/~pnh/ntpasswd/" "Offline NT"
 ;REVISIT !insertmacro SetISOFileNames "OpenMediaVault" "openmediavault*.iso" "http://sourceforge.net/projects/openmediavault/files/0.5.0.24/" "NULL" "system.cfg" "http://www.openmediavault.org/" "OpenMediaVault"
@@ -269,9 +273,10 @@ Function SetISOFileName ; Distro2Check (Name of the Distro), ISO2Check2 (The ISO
  !insertmacro SetISOFileNames "PING (Partimg Is Not Ghost)" "PING*.iso" "http://ping.windowsdream.com/ping/Releases/3.02/PING-3.02.iso" "NULL" "system.cfg" "http://ping.windowsdream.com" "PING"
  !insertmacro SetISOFileNames "POP!_OS" "Pop*.iso" "https://system76.com/pop" "NULL" "linux.cfg" "https://system76.com/" "POP!_OS"
  !insertmacro SetISOFileNames "Quick Save Live (Recovery Tools)" "Quick-Save-Live*.iso" "https://sourceforge.net/projects/quick-save-live/files/latest/download" "NULL" "system.cfg" "https://sourceforge.net/projects/quick-save-live/" "Quick Save Live"
- !insertmacro SetISOFileNames "Rescatux" "rescatux*.iso" "http://www.supergrubdisk.org/category/download/rescatuxdownloads/rescatux-stable/" "NULL" "system.cfg" "http://www.supergrubdisk.org/rescatux/" "Rescatux"
  !insertmacro SetISOFileNames "Redo Backup And Recovery (Recovery Tools)" "redobackup-livecd*.iso" "http://sourceforge.net/projects/redobackup/files/latest/download" "NULL" "system.cfg" "http://redobackup.org" "RedoBackup"
  !insertmacro SetISOFileNames "REMnux (Reverse Engineer Malware)" "remnux*.iso" "https://sourceforge.net/projects/remnux/files/version5/remnux-5.0-live-cd.iso/download" "NULL" "system.cfg" "http://zeltser.com/remnux/" "Remnux"
+ !insertmacro SetISOFileNames "Rescatux" "rescatux*.iso" "http://www.supergrubdisk.org/category/download/rescatuxdownloads/rescatux-stable/" "NULL" "system.cfg" "http://www.supergrubdisk.org/rescatux/" "Rescatux"
+ !insertmacro SetISOFileNames "Rescuezilla (Backup + Clone Tool)" "rescuezilla*.iso" "https://rescuezilla.com/download.html" "NULL" "system.cfg" "https://rescuezilla.com" "Rescuezilla"
  !insertmacro SetISOFileNames "Rip Linux (Recovery Distro)" "RIPLinuX*.iso" "http://sourceforge.net/projects/riplinuxmeta4s/files/latest/download" "NULL" "system.cfg" "http://www.tux.org/pub/people/kent-robotti/looplinux/rip/" "RIP Linux"
  !insertmacro SetISOFileNames "System Rescue CD" "systemrescuecd*.iso" "http://sourceforge.net/projects/systemrescuecd/files/latest/download" "NULL" "system.cfg" "http://www.sysresccd.org" "System Rescue"
  !insertmacro SetISOFileNames "Trinity Rescue Kit" "trinity-rescue-kit*.iso" "ftp://ftp.osuosl.org/pub/trk/trinity-rescue-kit.3.4-build-372.iso" "NULL" "system.cfg" "http://trinityhome.org" "TRK"

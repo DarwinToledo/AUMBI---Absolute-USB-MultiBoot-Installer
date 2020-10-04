@@ -23,10 +23,12 @@ ${AndIf} $DistroName != "Windows to Go (Virtual Hard Disk)"
  Call GetCaspTools
  
   ${If} $DistroName == "Debian Live"
-  StrCpy $CasperName "live-rw"
+  StrCpy $CasperName "persistence"
+  ${ElseIf} $DistroName == "Raspberry Pi Desktop"
+  StrCpy $CasperName "persistence"
   ${Else}
-  StrCpy $CasperName "casper-rw"
-  ${EndIf} 
+  StrCpy $CasperName "writable"
+  ${EndIf}
   
  SetShellVarContext all
  InitPluginsDir
@@ -39,7 +41,11 @@ ${AndIf} $DistroName != "Windows to Go (Virtual Hard Disk)"
  Call ddProgress
  Banner::destroy
  
- nsExec::ExecToLog '"$PLUGINSDIR\mke2fs.exe" -L $CasperName $PLUGINSDIR\$CasperName'
+  ${If} $DistroName == "Raspberry Pi Desktop"
+   nsExec::ExecToLog '"$PLUGINSDIR\mke2fs.exe" -L persistence $PLUGINSDIR\$CasperName'
+  ${Else}
+   nsExec::ExecToLog '"$PLUGINSDIR\mke2fs.exe" -L $CasperName $PLUGINSDIR\$CasperName'
+  ${EndIf}
  CopyFiles $PLUGINSDIR\$CasperName "$BootDir\${MB_DIR}\$JustISOName\$CasperName" ; Copy casper-rw to USB
  Delete "$PLUGINSDIR\$CasperName"
 ${EndIf}
@@ -54,6 +60,6 @@ SetShellVarContext all
 InitPluginsDir
 File /oname=$PLUGINSDIR\dd.exe "dd.exe"
 File /oname=$PLUGINSDIR\mke2fs.exe "mke2fs.exe"
-DetailPrint "Now Creating a Casper RW File" 
-DetailPrint "Creating the Persistent File: The progress bar will not move until finished. Please be patient..." 
+DetailPrint "Now Creating a Writable or Persistence File"
+DetailPrint "Creating the Persistent File: The progress bar will not move until finished. Please be patient..."
 FunctionEnd

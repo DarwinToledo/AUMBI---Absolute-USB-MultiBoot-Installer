@@ -9,7 +9,7 @@
            !define DESKTOP_USER        "Rodrigo"
            !define VERSION             "2.6.0.${BUILD_NUMBER}"
            !define YEAR                "2020"
-           !define RELEASE               "1"
+           !define RELEASE               "2"
            !define VERSION_TIME        "${YEAR}.${RELEASE}"
 
            #INST RESOURCES

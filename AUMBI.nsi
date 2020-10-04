@@ -7,7 +7,7 @@
 #===========================================================
 # INCLUDES
 #===========================================================
-         ;Unicode true
+;         Unicode true
 
          !execute "misc\Scripts\Build Counter v1.0.exe"
 
@@ -44,7 +44,7 @@
 #===========================================================
          VIProductVersion "${VERSION}"
          VIAddVersionKey CompanyName "usbwithlinux.com"
-         VIAddVersionKey LegalCopyright "Copyleft ©2020 Darwin Toledo usbwithlinux.com"
+         VIAddVersionKey LegalCopyright "Copyleft ï¿½2020 Darwin Toledo usbwithlinux.com"
          VIAddVersionKey FileVersion "${VERSION}"
          VIAddVersionKey FileDescription "AUMBI"
          VIAddVersionKey License "GPL Version 2"
@@ -55,11 +55,11 @@
 
          Name "${NAME} ${VERSION}"
          !ifdef BUILD_STABLE
-         Caption "${NAME} - ${VERSION_TIME} ${PRODUCT_WEBSITE}"
+         Caption "${NAME} - ${VERSION_TIME} - ${PRODUCT_WEBSITE}"
          OutFile "..\${FILENAME}-${VERSION_TIME}.exe"
          BrandingText "${NAME} ${VERSION} - ${PRODUCT_WEBSITE}"
          !else
-         Caption "${NAME} beta - ${VERSION_TIME} ${PRODUCT_WEBSITE}"
+         Caption "${NAME} beta - ${VERSION_TIME} - ${PRODUCT_WEBSITE}"
          OutFile "..\${FILENAME}-${VERSION_TIME}-beta.exe"
          BrandingText "${NAME} ${VERSION} Beta - ${PRODUCT_WEBSITE}"
          !endif
@@ -119,8 +119,12 @@ Page custom SelectionsPage_Show
          !include     "misc\Languages\Language_English.nsh"
          !insertmacro MUI_LANGUAGE "SpanishInternational"
          !include     "misc\Languages\Language_SpanishInternational.nsh"
+         !insertmacro MUI_LANGUAGE "PortugueseBR"
+         !include     "misc\Languages\Language_PortugueseBR.nsh"
 ;         !insertmacro MUI_LANGUAGE "Italian"
 ;         !include     "misc\Languages\Language_Italian.nsh"
+
+  !insertmacro MUI_RESERVEFILE_LANGDLL
 
 !include FileManipulation.nsh ; Text File Manipulation
 !include FileNames.nsh ; Macro for FileNames
@@ -900,11 +904,11 @@ FunctionEnd
          !include "misc\scripts\FuncDoSyslinux.nsh"
 
 Function AddDir ; changes to check if user had a version prior to 0.0.0.3. Newer AUMBI includes grub.exe
- ${IfNotThen} ${FileExists} "$BootDir\${MB_DIR}\grub.exe" 'CopyFiles "$PLUGINSDIR\grub.exe" "$BootDir\${MB_DIR}\grub.exe"' 
+ ${IfNotThen} ${FileExists} "$BootDir\${MB_DIR}\grub.exe" 'CopyFiles /SILENT "$PLUGINSDIR\grub.exe" "$BootDir\${MB_DIR}\grub.exe"' 
 ; Windows/Ubuntu SOURCES conflict fix
  ;${IfNot} ${FileExists} $BootDir\.disk\info 
   ; CreateDirectory $BootDir\.disk 
-  ; CopyFiles "$PLUGINSDIR\info" "$BootDir\.disk\info"
+  ; CopyFiles /SILENT "$PLUGINSDIR\info" "$BootDir\.disk\info"
  ;${EndIf} 
 FunctionEnd
 
